@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Authentification with devise
 gem 'devise'
+
+# Faker for seeding the DB
+gem 'faker'
