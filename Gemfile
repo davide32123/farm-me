@@ -66,3 +66,6 @@ gem 'devise'
 
 # Faker for seeding the DB
 gem 'faker'
+
+# Authorizations
+gem 'pundit'
