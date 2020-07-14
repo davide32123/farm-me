@@ -15,40 +15,82 @@ User.destroy_all
 puts "Cleaning up done"
 
 puts "Creating users"
-10.times do
-  params = {}
-  params[:first_name] = Faker::Name.first_name
-  params[:last_name] = Faker::Name.last_name
-  params[:password] = "password"
-  params[:email] = Faker::Internet.email
-  params[:description] = Faker::Lorem.sentence
-  params[:address] = Faker::Address.full_address
-  new_user = User.new(params)
-  new_user.save
-  puts "Created user #{new_user.id}"
-end
+params = {}
+params[:first_name] = "Davide"
+params[:last_name] = "Zanetto"
+params[:password] = "password"
+params[:email] = "davide.zanetto@farm-me.com"
+params[:description] = "I love nature"
+params[:address] = Faker::Address.full_address
+new_user = User.new(params)
+new_user.save
+puts "Created user #{new_user.id}"
+
+params = {}
+params[:first_name] = "Liam"
+params[:last_name] = "Baker"
+params[:password] = "password"
+params[:email] = "liam.baker@farm-me.com"
+params[:description] = "I love nature and coding"
+params[:address] = Faker::Address.full_address
+new_user = User.new(params)
+new_user.save
+puts "Created user #{new_user.id}"
+
+params = {}
+params[:first_name] = "Ayako"
+params[:last_name] = "Amano"
+params[:password] = "password"
+params[:email] = "ayako.amano@farm-me.com"
+params[:description] = "I love coding"
+params[:address] = Faker::Address.full_address
+new_user = User.new(params)
+new_user.save
+puts "Created user #{new_user.id}"
+
+params = {}
+params[:first_name] = "Cassiano"
+params[:last_name] = "Yasumitsu"
+params[:password] = "password"
+params[:email] = "cassiano.yasumitsu@farm-me.com"
+params[:description] = "I love coding"
+params[:address] = Faker::Address.full_address
+new_user = User.new(params)
+new_user.save
+puts "Created user #{new_user.id}"
+
 puts "Users created"
 
 puts "Creating products"
-10.times do
-  new_product = Product.new(name: [Faker::Food.vegetables, Faker::Food.fruits].sample)
+products = %w(carrots apples zucchini potatoes grapes watermelon lemon tomatoes )
+products.each do |product|
+  new_product = Product.new(name: product)
   new_product.save
   puts "Created product #{new_product.id}"
 end
 puts "Products created"
 
 puts "Creating baskets"
-10.times do
-  params = {}
-  params[:description] = Faker::Lorem.sentence
-  params[:user] = User.all.sample
-  params[:availability] = true
-  params[:title] = Faker::Lorem.word
-  params[:price] = rand(1000..99999)
-  new_basket = Basket.new(params)
-  new_basket.save
-  puts "Created basket #{new_basket.id}"
-end
+params = {}
+params[:description] = "Too good to be true, a collection of tasty vegetables and fruits"
+params[:user] = User.all.sample
+params[:availability] = true
+params[:title] = "Seasonal delights"
+params[:price] = rand(1000..99999)
+new_basket = Basket.new(params)
+new_basket.save
+puts "Created basket #{new_basket.id}"
+
+params = {}
+params[:description] = "Yummy yummy yummy"
+params[:user] = User.all.sample
+params[:availability] = true
+params[:title] = "The good deal"
+params[:price] = rand(1000..99999)
+new_basket = Basket.new(params)
+new_basket.save
+puts "Created basket #{new_basket.id}"
+
 puts "Baskets created"
 
 puts "Creating basket items"
