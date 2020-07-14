@@ -1,21 +1,32 @@
 <div class="container">
     <div class="basketlist-title">
-      <%if basket.count =< 1 %>
-      <h3>You have <%= basket.count %> basket!</h3>
+      <%if @baskets.count =< 1 %>
+      <h3>You have <%= @baskets.count %> basket!</h3>
       <%else%>
-      <h3>You have <%= basket.count %> baskets!</h3>
+      <h3>You have <%= @baskets.count %> baskets!</h3>
       <%end %>
     </div>
     <div class="basketlist">
 　    <div class="basketcards">
        <% @baskets.each do |basket| %>
-       <%= basket.name %>
-       <%= basket.description %>
+       <%= cl_image_tag basket.photo.key %>
+       <%= basket.title %>
        <%= basket.price %>
        <% end %>
       </div>
     </div>
-    <div class="">
+    <div class="orderlist-title">
+      <h3>You have <%= accept.false.count %> & <%= accept.true.count %> orders</h3>
+    </div>
+    <div class="orderlist">
+      <%if accept == false %>
+      <div class="btn" id="btn_accept">
+        <% %>
+      </div>
+      <div class="btn" id="btn_decline">
+        <% %>
+      </div>
+
 
     </div>
 
