@@ -1,0 +1,8 @@
+<%= simple_form_for(@basket) do |f| %>
+<%= f.input :photos, as: :file, input_html: { multiple: true } %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :price %>
+<%= f.input :availability %>
+<%= f.submit %>
+<% end %>
