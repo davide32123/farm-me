@@ -62,7 +62,7 @@ puts "Created user #{new_user.id}"
 puts "Users created"
 
 puts "Creating products"
-products = %w(carrots apples zucchini potatoes grapes watermelon lemon tomatoes )
+products = ["carrots", "apples", "zucchini", "potatoes", "grapes", "watermelon", "lemon", "tomatoes" ]
 products.each do |product|
   new_product = Product.new(name: product)
   new_product.save
