@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :baskets, dependent: :destroy
   has_many :subscriptions, dependent: :destroy #as a customer
   has_many :subscriptions_as_farmer, through: :baskets, source: :subscriptions
+  validates :email, uniqueness: true
+  validates :encrypted_password, :email, presence: true
 end
