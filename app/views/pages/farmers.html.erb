@@ -1,0 +1,19 @@
+ <div class="container">
+    <div class="basketlist-title">
+      <%if basket.count =< 1 %>
+      <h3>You have <%= basket.count %> basket!</h3>
+      <%else%>
+      <h3>You have <%= basket.count %> baskets!</h3>
+      <%end %>
+    </div>
+    <div class="basketlist">
+　    <div class="basketcards">
+       <% @baskets.each do |basket| %>
+       <%= basket.name %>
+       <%= basket.description %>
+       <%= basket.price %>
+       <% end %>
+      </div>
+    </div>
+
+  </div>
