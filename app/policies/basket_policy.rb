@@ -4,4 +4,12 @@ class BasketPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    true
+  end
+
+  def show?
+    true
+  end
 end
