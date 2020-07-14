@@ -1,0 +1,14 @@
+<div>Photos</div>
+<h3> Basket title: <%= @basket.title  %> </h3>
+<p> Description: <%= @basket.description %> </p>
+<p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
+<p> Farmer description: <%= @basket.user.description %> </p>
+<p> Price: <%= @basket.price %> JPY </p>
+<p>Items</p>
+<ul>
+  <% @basket.basket_items.each do |item| %>
+    <li> <%= item.product.name %> </li>
+  <% end %>
+</ul>
+
+<button class="btn btn-primary">Subscribe</button>
