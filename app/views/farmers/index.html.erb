@@ -1,18 +1,18 @@
 <div class="container">
-    <div class="basketlist-title">
-      <%if @baskets.count == 1 %>
-        <h3>You have <%= @baskets.count %> basket!</h3>
-      <%else%>
-        <h3>You have <%= @baskets.count %> baskets!</h3>
-      <% end %>
-    </div>
-    <div class="basketlist">
+  <div class="basketlist-title">
+    <%if @baskets.count == 1 %>
+      <h3>You have <%= @baskets.count %> basket!</h3>
+    <%else%>
+      <h3>You have <%= @baskets.count %> baskets!</h3>
+    <% end %>
+  </div>
+  <div class="basketlist">
 　    <div class="basketcards">
-       <% @baskets.each do |basket| %>
-       <%= basket.photos.each { |photo| cl_image_tag photo.key } if basket.photos %>
-       <%= basket.title %>
-       <%= basket.price %>
-       <% end %>
-      </div>
+     <% @baskets.each do |basket| %>
+     <%= basket.photos.each { |photo| cl_image_tag photo.key } if basket.photos %>
+     <%= basket.title %>
+     <%= basket.price %>
+     <% end %>
     </div>
   </div>
+</div>
