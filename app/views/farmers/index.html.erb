@@ -9,7 +9,7 @@
     <div class="basketlist">
 　    <div class="basketcards">
        <% @baskets.each do |basket| %>
-       <%= cl_image_tag basket.photo.key %>
+       <%= cl_image_tag basket.photos.key %>
        <%= basket.title %>
        <%= basket.price %>
        <% end %>
