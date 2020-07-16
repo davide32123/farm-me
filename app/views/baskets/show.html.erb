@@ -10,5 +10,9 @@
     <li> <%= item.product.name %> </li>
   <% end %>
 </ul>
+<%= simple_form_for([@basket, @basket_item]) do |f| %>
+  <%= f.input :product_id, collection: Product.all %>
+  <%= f.submit%>
+<% end %>
 
 <button class="btn btn-primary">Subscribe</button>
