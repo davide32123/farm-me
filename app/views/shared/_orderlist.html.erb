@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Delivery date</th>
+    <th>Basket</th>
+    <th>Price</th>
+    <th><%= farmer ? "Customer Name" : "Farmer Name" %></th>
+    <th><%= farmer ? "Customer address" : "Farmer address" %></th>
+
+  </tr>
+  <% subscriptions.each do |subscription| %>
+  <tr>
+    <td>
+    <% if subscription.status == "pending" %>
+    <%= link_to "Accept", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch %>
+    <%= link_to "Decline", subscription_path(subscription.id) %>
+    <% elsif subscription.status == "accepted" %>
+    <p>Accepted</p>
+    <%= link_to "Decline", subscription_path(subscription.id,'subscription[status]' => "declined"), method: :patch %>
+    <% end %>
+    </td>
+    <td><%= subscription.delivery_day %></td>
+    <td><%= subscription.basket %></td>
+    <td><%= subscription.basket.description %></td>
+    <td><%= farmer ? subscription.user.full_name : subscription.basket.user.full_name %></td>
+    <td><%= farmer ? subscription.user.address : subscription.basket.user.address %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%-# Accept and decline button.  %>
+<%-# Accept=> accepted + cancel button %>
+<%-# Decline=> declined %>
+<%-#pertial: oerderlist into subscriptions page & dashboard page %>
+
+
