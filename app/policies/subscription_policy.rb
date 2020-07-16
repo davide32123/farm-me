@@ -8,4 +8,8 @@ class SubscriptionPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def update?
+    record.basket.user == user || record.user == user
+  end
 end
