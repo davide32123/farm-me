@@ -1,6 +1,6 @@
 <div class="container">
     <div class="basketlist-title">
-      <%if @baskets.count =< 1 %>
+      <%if @baskets.count <= 1 %>
       <h3>You have <%= @baskets.count %> basket!</h3>
       <%else%>
       <h3>You have <%= @baskets.count %> baskets!</h3>
@@ -9,10 +9,13 @@
     <div class="basketlist">
 　    <div class="basketcards">
        <% @baskets.each do |basket| %>
-       <%= cl_image_tag basket.photos.key %>
+       <%-# cl_image_tag basket.photos.key %>
        <%= basket.title %>
        <%= basket.price %>
        <% end %>
       </div>
+    </div>
+    <div>
+      <%= render partial:'shared/orderlist', locals:{subscriptions:@subscriptions, farmer:true}%>
     </div>
   </div>

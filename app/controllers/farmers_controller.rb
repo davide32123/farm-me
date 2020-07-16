@@ -1,7 +1,9 @@
 class FarmersController < ApplicationController
   def index
-    @subscriptions = Subscription.where(user_id: current_user)
-    @baskets = Basket.where(user_id: current_user)
+    @baskets = Basket.where(user: current_user)
+    @subscriptions = @baskets.flat_map do |basket|
+      basket.subscriptions
+    end
     redirect_to root_path if @baskets.count.zero?
     authorize @baskets
     authorize @subscriptions

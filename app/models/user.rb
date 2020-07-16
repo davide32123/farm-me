@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :subscriptions_as_farmer, through: :baskets, source: :subscriptions
   validates :email, uniqueness: true
   validates :encrypted_password, :email, presence: true
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
