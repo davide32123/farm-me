@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Delivery date</th>
+    <th>Basket</th>
+    <th>Price</th>
+    <th>Customer name</th>
+    <th>Address</th>
+  </tr>
+  <% subscriptions.each do |subscription| %>
+  <tr>
+    <td><%= subscription.status %></td>
+    <td><%= subscription.delivery_day %></td>
+    <td><%= subscription.basket %></td>
+    <td><%= subscription.basket.description %></td>
+    <td><%= subscription.user.email %></td>
+    #<td><%= ADDRESS %></td>
+  </tr>
+  <% end %>
+</table>
+<%-# %>
+
+
