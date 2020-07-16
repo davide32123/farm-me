@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'farmers#index'
   resources :baskets, only: [:index, :new, :create, :show] do
     resources :subscriptions, only: [:create]
+    resources :basket_items, only: [:new, :create]
   end
 
   resources :subscriptions, only: [:index, :update]
