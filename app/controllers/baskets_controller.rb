@@ -20,6 +20,8 @@ class BasketsController < ApplicationController
 
   def show
     authorize @basket
+    @basket_item = BasketItem.new
+    authorize @basket_item
   end
 
   private
