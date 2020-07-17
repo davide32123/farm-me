@@ -1,3 +1,18 @@
-
-<h1>Farm-Me</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center">
+  <h1>Farm-Me</h1>
+  <div class="row justify-content-center">
+    <%= @baskets.each do |basket| %>
+      <div class="card m-4 border rounded border-success">
+        <% if basket.photos.attached? %>
+        <%= cl_image_tag basket.photos.first.key, height: 200, width: 280, crop: :fill %>
+        <% else %>
+        <%= image_tag "basket.jpg", height: 200, width: 280, crop: :fill %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= basket.title %></h5>
+           <%= link_to 'Subscribe', root_path %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

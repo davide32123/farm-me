@@ -1,5 +1,10 @@
 <div>Photos</div>
 <h3> Basket title: <%= @basket.title  %> </h3>
+
+<% @basket.photos.each do |photo| %>
+<%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+<% end %>
+
 <p> Description: <%= @basket.description %> </p>
 <p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
 <p> Farmer description: <%= @basket.user.description %> </p>
