@@ -1,18 +1,33 @@
-<div>Photos</div>
-<h3> Basket title: <%= @basket.title  %> </h3>
-<p> Description: <%= @basket.description %> </p>
-<p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
-<p> Farmer description: <%= @basket.user.description %> </p>
-<p> Price: <%= @basket.price %> JPY </p>
-<p>Items</p>
-<ul>
-  <% @basket.basket_items.each do |item| %>
-    <li> <%= item.product.name %> </li>
-  <% end %>
-</ul>
-<%= simple_form_for([@basket, @basket_item]) do |f| %>
-  <%= f.input :product_id, collection: Product.all %>
-  <%= f.submit%>
-<% end %>
-
-<button class="btn btn-primary">Subscribe</button>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-sm">
+      <h2> Basket Title: <%= @basket.title  %> </h2>
+      <br>
+      <p> Description: <%= @basket.description %> </p>
+      <p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
+      <p> Farmer description: <%= @basket.user.description %> </p>
+      <p> Price: <%= @basket.price %> JPY </p>
+    </div>
+    <div class="col-sm">
+      <h2>Photos</h2>
+      <% @basket.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container w-50 mb-3">
+    <p>Basket Items:</p>
+    <ul class="list-group list-group-flush">
+      <% @basket.basket_items.each do |item| %>
+      <li class="list-group-item"> <%= item.product.name %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="container w-50 mb-3">
+    <%= simple_form_for([@basket, @basket_item]) do |f| %>
+    <%= f.input :product_id, label: 'Insert Items', collection: Product.all %>
+    <%= f.button :submit, 'Insert Item', class: 'btn btn-outline-success'%>
+    <% end %>
+  </div>
+  <button class="btn btn-primary">Subscribe</button>
+</div>
