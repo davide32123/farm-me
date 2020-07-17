@@ -1,8 +1,7 @@
 <%= simple_form_for(@basket) do |f| %>
 <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :price %>
-<%= f.input :availability %>
-<%= f.submit %>
+<%= f.input :title, label: 'Basket Title:' %>
+<%= f.input :description , label: 'About the Basket:' %>
+<%= f.input :price, label: 'Suggested Price:' %>
+<%= f.submit class: 'btn btn-outline-success' %>
 <% end %>
