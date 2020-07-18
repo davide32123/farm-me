@@ -10,11 +10,12 @@ table {
   text-align: center;
   padding: 10px 20px;
   border:1px solid black;
+  background-color: white;
   }
 }
 
 .subscription-pending{
-  background-color: $light-red;
+  background-color: $light-yellow;
 }
 
 .subscription-accept{
@@ -22,5 +23,5 @@ table {
 }
 
 .subscription-reject{
-  background-color: $light-gray;
+  background-color: $light-red;
 }
