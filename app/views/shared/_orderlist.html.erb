@@ -1,3 +1,11 @@
+
+<div class="subscriptions-title">
+    <%if @subscriptions.count <= 1 %>
+    <h3>You have <%= @subscriptions.count %> subscription!</h3>
+    <%else%>
+    <h3>You have <%= @subscriptions.count %> subscriptions!</h3>
+    <% end %>
+  </div>
 <table>
   <thead>
     <tr>
