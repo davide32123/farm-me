@@ -1,4 +1,8 @@
 class SubscriptionsController < ApplicationController
+  def index
+    skip_policy_scope
+  end
+
   def update
     skip_policy_scope
     @subscription = Subscription.find(params[:id])
