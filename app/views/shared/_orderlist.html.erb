@@ -26,7 +26,7 @@
           <%= link_to "Decline", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch %>
         <% elsif subscription.status == "accepted" %>
           <%= link_to "Cancel", subscription_path(subscription.id,'subscription[status]' => "rejected"), method: :patch %>
-        <% else subscription.status =="rejected" %>
+        <% else %>
           <p>Rejected</p>
         <% end %>
       </td>
