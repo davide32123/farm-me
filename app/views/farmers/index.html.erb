@@ -5,9 +5,9 @@
   <h3>You have <%= @baskets.count %> baskets!  🥗</h3>
   <% end %>
 </div>
-<div class="row justify-content-center">
+<div class="row basket-cards-sidescroll justify-content-center">
   <% @baskets.each do |basket| %>
-  <div class="card m-4">
+  <div class="card mx-1">
     <% if basket.photos.attached? %>
     <%=cl_image_tag basket.photos.first.key, alt: "alttext", height: 240, width: 286, crop: :fill, class: 'p-1' %>
     <% else %>
