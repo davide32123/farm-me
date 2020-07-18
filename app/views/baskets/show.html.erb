@@ -11,14 +11,16 @@
   <% end %>
 </ul>
 <!-- Need to add auhtorization to see this only if user created the basket -->
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newProduct" aria-expanded="false" aria-controls="collapseExample">
-  Add product
-</button>
-<div class="collapse" id="newProduct">
-  <%= simple_form_for([@basket, @basket_item]) do |f| %>
-    <%= f.input :product_id, collection: Product.all %>
-    <%= f.submit%>
-  <% end %>
-</div>
+<% if policy(@basket).edit? %>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newProduct" aria-expanded="false" aria-controls="collapseExample">
+    Add product
+  </button>
+  <div class="collapse" id="newProduct">
+    <%= simple_form_for([@basket, @basket_item]) do |f| %>
+      <%= f.input :product_id, collection: Product.all %>
+      <%= f.submit%>
+    <% end %>
+  </div>
+<% end %>
 <hr>
 <button class="btn btn-primary">Subscribe</button>
