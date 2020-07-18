@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/dashboard', to: 'farmers#index'
-  resources :baskets, only: [:index, :new, :create, :show] do
+  resources :baskets do
     resources :subscriptions, only: [:create]
     resources :basket_items, only: [:new, :create]
   end
