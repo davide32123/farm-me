@@ -6,7 +6,7 @@
   <% end %>
 </div>
 
-<table>
+<table  class="subscriptionlist">
   <thead>
     <tr>
       <th>Status</th>
@@ -20,16 +20,21 @@
   <tbody>
     <% subscriptions.each do |subscription| %>
     <tr>
-      <td class="d-flex subscription-controls">
-        <% if subscription.status == "pending" %>
-          <%= link_to "Accept", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch %>
+      <% if subscription.status == "pending" %>
+        <td class="subscription-pending">
+          <%= link_to "Accept", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch%>
           <%= link_to "Decline", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch %>
-        <% elsif subscription.status == "accepted" %>
+        </td>
+      <% elsif subscription.status == "accepted" %>
+         <td class="subscription-accept">
           <%= link_to "Cancel", subscription_path(subscription.id,'subscription[status]' => "rejected"), method: :patch %>
-        <% else subscription.status =="rejected" %>
+         </td>
+      <% else %>
+         <td class="subscription-reject">
           <p>Rejected</p>
-        <% end %>
-      </td>
+         </td>
+      <% end %>
+
       <td><%= subscription.delivery_day %></td>
       <td><%= subscription.basket.title %></td>
       <td><%= subscription.basket.price %></td>

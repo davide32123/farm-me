@@ -1,0 +1,26 @@
+table {
+  border:1px solid black;
+  th {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: $green;
+  border:1px solid black;
+  }
+  td {
+  text-align: center;
+  padding: 10px 20px;
+  border:1px solid black;
+  }
+}
+
+.subscripton-pending{
+  background-color: $red;
+}
+
+.subscripton-accept{
+  background-color: $light-green;
+}
+
+.subscription-reject{
+  background-color: $light-gray;
+}
