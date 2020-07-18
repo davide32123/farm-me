@@ -36,6 +36,7 @@
 </div>
 
 <% if policy(@basket).edit? %>
+<%= link_to "Edit basket", edit_basket_path(@basket), class: "btn btn-outline-primary" %>
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newProduct" aria-expanded="false" aria-controls="collapseExample">
     Add product
   </button>
