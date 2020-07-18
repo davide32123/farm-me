@@ -1,6 +1,7 @@
 class BasketsController < ApplicationController
   before_action :find_basket, only: [:show]
 
+
   def new
     @basket = Basket.new
     authorize @basket
@@ -31,6 +32,6 @@ class BasketsController < ApplicationController
   end
 
   def basket_params
-    params.require(:basket).permit(:description, :user_id, :availability, :title, :price)
+    params.require(:basket).permit(:description, :user_id, :availability, :title, :price, photos: [])
   end
 end
