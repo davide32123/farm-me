@@ -1,19 +1,24 @@
-<div class="basketlist-title">
+<div class="basketlist-title text-center">
   <%if @baskets.count <= 1 %>
-  <h3>You have <%= @baskets.count %> basket!</h3>
+  <h3>You have <%= @baskets.count %> basket!  🥗</h3>
   <%else%>
-  <h3>You have <%= @baskets.count %> baskets!</h3>
+  <h3>You have <%= @baskets.count %> baskets!  🥗</h3>
   <% end %>
 </div>
-<div class="d-flex basketcards">
+<div class="row justify-content-center">
   <% @baskets.each do |basket| %>
-  <div class="basketcard">
-    <div class="basket-images">
-      <%= basket.photos.each { |photo| cl_image_tag photo.key } if basket.photos %>
-    </div>
-    <div class="basket-info">
+  <div class="card m-4">
+    <% if basket.photos.attached? %>
+    <%=cl_image_tag basket.photos.first.key, alt: "alttext", height: 240, width: 286, crop: :fill, class: 'p-1' %>
+    <% else %>
+    <%= image_tag "empyt-basket.jpg", alt: "alttext", height: 240, width: 286, crop: :fill, class: 'p-1' %>
+    <% end %>
+    <div class="basket-info p-1 text-center">
       <h5><%= basket.title %></h5>
-      <p><%= basket.price %></p>
+      <div class="d-flex justify-content-between pr-2 pl-2">
+        <p><%= link_to 'Details', basket_path(basket), class: 'btn btn-outline-success rounded-pill'  %></p>
+        <p><strong>¥ <%= basket.price %></strong></p>
+      </div>
     </div>
   </div>
   <% end %>
@@ -21,4 +26,5 @@
 <div>
   <%= render partial:'shared/orderlist', locals: {subscriptions: @subscriptions, farmer: true}%>
 </div>
+
 
