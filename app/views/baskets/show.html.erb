@@ -35,11 +35,17 @@
   </div>
 </div>
 
-<%= simple_form_for([@basket, @basket_item]) do |f| %>
-<%= f.input :product_id, collection: Product.all %>
-<%= f.submit%>
+<% if policy(@basket).edit? %>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newProduct" aria-expanded="false" aria-controls="collapseExample">
+    Add product
+  </button>
+  <div class="collapse" id="newProduct">
+    <%= simple_form_for([@basket, @basket_item]) do |f| %>
+      <%= f.input :product_id, collection: Product.all %>
+      <%= f.submit%>
+    <% end %>
+  </div>
 <% end %>
 
-<br>
 
 
