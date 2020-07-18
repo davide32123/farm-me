@@ -5,4 +5,8 @@ class Basket < ApplicationRecord
   has_many_attached :photos
   validates :user_id, :price, :title, :availability, :description, presence: true
   validates :title, uniqueness: { scope: :description }
+
+  def make_available!
+    self.availability = true
+  end
 end
