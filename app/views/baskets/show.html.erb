@@ -1,26 +1,45 @@
-<div>Photos</div>
-<h3> Basket title: <%= @basket.title  %> </h3>
-<p> Description: <%= @basket.description %> </p>
-<p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
-<p> Farmer description: <%= @basket.user.description %> </p>
-<p> Price: <%= @basket.price %> JPY </p>
-<p>Items</p>
-<ul>
-  <% @basket.basket_items.each do |item| %>
-    <li> <%= item.product.name %> </li>
-  <% end %>
-</ul>
-<!-- Need to add auhtorization to see this only if user created the basket -->
-<% if policy(@basket).edit? %>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newProduct" aria-expanded="false" aria-controls="collapseExample">
-    Add product
-  </button>
-  <div class="collapse" id="newProduct">
-    <%= simple_form_for([@basket, @basket_item]) do |f| %>
-      <%= f.input :product_id, collection: Product.all %>
-      <%= f.submit%>
+<h1 class="text-center">Basket Details</h1>
+<hr>
+<div class="d-flex">
+  <div class="container">
+    <% @basket.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 350, width: 500, crop: :fill %>
     <% end %>
   </div>
-<% end %>
+  <div class="container">
+    <% @basket.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 180, width: 220, crop: :fill %>
+    <% end %>
+  </div>
+</div>
 <hr>
-<button class="btn btn-primary">Subscribe</button>
+<div class="d-flex">
+  <div class="container">
+    <h3 class=" text-center"><%= @basket.title  %> </h3>
+    <p> Description: <%= @basket.description %> </p>
+    <p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
+    <p> Farmer description: <%= @basket.user.description %> </p>
+  </div>
+  <div class="container w-50 p-2 border rounded">
+    <p class="text-center border rounded"> Price: <%= @basket.price %> JPY </p>
+    <p class="text-center">Items</p>
+    <ul class="list-group list-group-flush">
+      <% @basket.basket_items.each do |item| %>
+      <li class="list-group-item"> <%= item.product.name %> </li>
+      <% end %>
+    </ul>
+    <hr>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<%= simple_form_for([@basket, @basket_item]) do |f| %>
+<%= f.input :product_id, collection: Product.all %>
+<%= f.submit%>
+<% end %>
+
+<br>
+
+
