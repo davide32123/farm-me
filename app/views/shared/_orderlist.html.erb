@@ -1,11 +1,11 @@
-
 <div class="subscriptions-title">
-    <%if @subscriptions.count <= 1 %>
-    <h3>You have <%= @subscriptions.count %> subscription!</h3>
-    <%else%>
-    <h3>You have <%= @subscriptions.count %> subscriptions!</h3>
-    <% end %>
-  </div>
+  <%if @subscriptions.count <= 1 %>
+  <h3>You have <%= @subscriptions.count %> subscription!</h3>
+  <%else%>
+  <h3>You have <%= @subscriptions.count %> subscriptions!</h3>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -20,7 +20,7 @@
   <tbody>
     <% subscriptions.each do |subscription| %>
     <tr>
-      <td class= "d-flex subscription-controls">
+      <td class="d-flex subscription-controls">
         <% if subscription.status == "pending" %>
           <%= link_to "Accept", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch %>
           <%= link_to "Decline", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch %>
