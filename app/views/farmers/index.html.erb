@@ -15,6 +15,14 @@
       <% end %>
     </div>
     <div>
+      <div class="subscription-title">
+        <%if @subscription.count <= 1 %>
+        <h3>You have <%= @subscription.count %> subscriotion!</h3>
+        <%else%>
+        <h3>You have <%= @subscription.count %> subscriptions!</h3>
+        <% end %>
+      </div>
+
         <%= render partial:'shared/orderlist', locals:{subscriptions:@subscriptions, farmer:true}%>
     </div>
   </div>

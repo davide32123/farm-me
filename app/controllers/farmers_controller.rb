@@ -5,8 +5,8 @@ class FarmersController < ApplicationController
       basket.subscriptions
     end
     redirect_to root_path if @baskets.count.zero?
-    authorize @baskets
     authorize @subscriptions
+    authorize @baskets
     skip_policy_scope
   end
 end
