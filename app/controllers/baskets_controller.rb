@@ -1,5 +1,5 @@
 class BasketsController < ApplicationController
-  before_action :find_basket, only: [:show]
+  before_action :find_basket, only: [:show, :edit, :update]
 
 
   def new
@@ -23,6 +23,19 @@ class BasketsController < ApplicationController
     authorize @basket
     @basket_item = BasketItem.new
     authorize @basket_item
+  end
+
+  def edit
+    authorize @basket
+  end
+
+  def update
+    authorize @basket
+    if @basket.update(basket_params)
+      redirect_to basket_path(@basket)
+    else
+      render :new
+    end
   end
 
   private
