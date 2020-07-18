@@ -1,12 +1,10 @@
 class FarmersController < ApplicationController
   def index
-    @baskets = Basket.where(user: current_user)
-    @subscriptions = @baskets.flat_map do |basket|
-      basket.subscriptions
-    end
-    redirect_to root_path if @baskets.count.zero?
-    authorize @subscriptions
-    authorize @baskets
     skip_policy_scope
+    @baskets = Basket.where(user: current_user)
+    @subscriptions = @baskets.flat_map(&:subscriptions)
+    redirect_to subscriptions_path if @baskets.count.zero?
+    authorize @baskets
+    authorize @subscriptions if @subscriptions.nil?
   end
 end
