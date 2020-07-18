@@ -7,8 +7,8 @@ class BasketsController < ApplicationController
   end
 
   def create
-    params[:availability] = true
     @basket = current_user.baskets.new(basket_params)
+    @basket.make_available!
     authorize @basket
 
     if @basket.save
