@@ -9,6 +9,10 @@ class SubscriptionPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def create?
+    record.basket.user != user
+  end
+
   def update?
     record.basket.user == user || record.user == user
   end

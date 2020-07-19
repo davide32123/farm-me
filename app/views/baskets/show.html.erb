@@ -36,9 +36,11 @@
       <% end %>
     </ul>
     <hr>
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-primary">Subscribe</button>
-    </div>
+    <% if policy(@subscription).create? %>
+      <div class="d-flex justify-content-end">
+        <%= link_to "Subscribe", subscriptions_path, class: "btn btn-outline-primary", method: :post %>
+      </div>
+    <% end %>
   </div>
 </div>
 
