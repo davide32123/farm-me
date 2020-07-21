@@ -159,7 +159,9 @@ Basket.all.each do |basket|
     params = {}
     params[:basket] = basket
     params[:product] = Product.all.sample
+    params[:quantity] = rand(1..10)
     new_basket_item = BasketItem.create(params)
+    puts "Basket item #{new_basket_item.id} done"
   end
   puts "Basket #{basket.id} filled"
 end
