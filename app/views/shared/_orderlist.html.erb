@@ -99,8 +99,8 @@
       <% elsif subscription.status == "accepted" %>
          <td class="subscription-accept">
           <p>Accepted</p>
-            <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
-              <span>Cancel</span>
+            <button type="button" class="btn cancel-button " data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
+              <i class="fas fa-times"></i>
             </button>
             <div class="modal" id="cancelSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
