@@ -43,9 +43,8 @@
         </button>
         <div class="collapse" id="newSubscription">
           <%= simple_form_for @subscription do |f| %>
-            <!-- Need to add collection after merging latest PR -->
             <%= f.input :basket_id, :as => :hidden, :input_html => { :value => @basket.id } %>
-            <%= f.input :delivery_day %>
+            <%= f.input :delivery_day, collection: Subscription.allowed_delivery_days %>
             <%= f.submit%>
           <% end -%>
         </div>
