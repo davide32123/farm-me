@@ -1,12 +1,13 @@
 class SubscriptionsController < ApplicationController
   def index
     skip_policy_scope
+    @subscriptions = Subscription.where(user: current_user)
   end
 
   def create
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
-    @subscription.status = "Pending"
+    @subscription.status = "pending"
     authorize @subscription
 
     if @subscription.save
