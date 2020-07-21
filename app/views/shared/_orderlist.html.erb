@@ -131,7 +131,7 @@
 
       <td><%= subscription.delivery_day %></td>
       <td><%= subscription.basket.title %></td>
-      <td><%= subscription.basket.price %></td>
+      <td>¥<%= subscription.basket.price %></td>
       <td><%= farmer ? subscription.user.full_name : subscription.basket.user.full_name %></td>
       <td><%= farmer ? subscription.user.address : subscription.basket.user.address %></td>
     </tr>
