@@ -10,3 +10,14 @@
     background-color: white;
   }
 }
+
+.basket-cards-all {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  .card-basket {
+    // flex: 0 0 auto;
+    width: 300px;
+    background-color: white;
+  }
+}

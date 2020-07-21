@@ -37,8 +37,18 @@
     </ul>
     <hr>
     <% if policy(@subscription).create? %>
-      <div class="d-flex justify-content-end">
-        <%= link_to "Subscribe", subscriptions_path, class: "btn btn-outline-primary", method: :post %>
+      <div>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newSubscription" aria-expanded="false" aria-controls="collapseExample">
+          Subscribe
+        </button>
+        <div class="collapse" id="newSubscription">
+          <%= simple_form_for @subscription do |f| %>
+            <!-- Need to add collection after merging latest PR -->
+            <%= f.input :basket_id, :as => :hidden, :input_html => { :value => @basket.id } %>
+            <%= f.input :delivery_day %>
+            <%= f.submit%>
+          <% end -%>
+        </div>
       </div>
     <% end %>
   </div>
@@ -51,8 +61,8 @@
 </button>
 <div class="collapse" id="newProduct">
   <%= simple_form_for([@basket, @basket_item]) do |f| %>
-  <%= f.input :product_id, collection: Product.all %>
-  <%= f.submit%>
+    <%= f.input :product_id, collection: Product.all %>
+    <%= f.submit%>
   <% end %>
 </div>
 <% end %>

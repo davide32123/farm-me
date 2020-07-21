@@ -10,7 +10,11 @@ class SubscriptionPolicy < ApplicationPolicy
   end
 
   def create?
-    record.basket.user != user
+    if record.basket
+      record.basket.user != user
+    else
+      true
+    end
   end
 
   def update?

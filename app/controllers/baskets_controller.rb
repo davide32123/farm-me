@@ -6,6 +6,12 @@ class BasketsController < ApplicationController
     authorize @basket
   end
 
+  def index
+    skip_policy_scope
+    @baskets = Basket.all
+    authorize @baskets
+  end
+
   def create
     @basket = current_user.baskets.new(basket_params)
     @basket.make_available!
