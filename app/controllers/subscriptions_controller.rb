@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
-    @subscription.status = "Pending"
+    @subscription.status = "pending"
     authorize @subscription
 
     if @subscription.save
