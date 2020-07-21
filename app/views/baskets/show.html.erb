@@ -32,7 +32,10 @@
     <p class="text-center">Items</p>
     <ul class="list-group list-group-flush">
       <% @basket.basket_items.each do |item| %>
-      <li class="list-group-item"> <%= item.product.name %> </li>
+        <div class="d-flex justify-content-between">
+          <p><%= item.product.name.capitalize %></p>
+          <p><%= item.quantity %></p>
+        </div>
       <% end %>
     </ul>
     <hr>
@@ -61,6 +64,7 @@
 <div class="collapse" id="newProduct">
   <%= simple_form_for([@basket, @basket_item]) do |f| %>
     <%= f.input :product_id, collection: Product.all %>
+    <%= f.input :quantity %>
     <%= f.submit%>
   <% end %>
 </div>
