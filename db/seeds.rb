@@ -172,7 +172,7 @@ params[:user] = User.find_by(first_name: 'Davide')
 params[:basket] = Basket.find_by(title: "Voluptuous Vegetables")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -182,7 +182,7 @@ params[:user] = User.find_by(first_name: 'Davide')
 params[:basket] = Basket.find_by(title: "Vigorous Veges")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -192,7 +192,7 @@ params[:user] = User.find_by(first_name: 'Liam')
 params[:basket] = Basket.find_by(title: "Seasonal delights")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -202,7 +202,7 @@ params[:user] = User.find_by(first_name: 'Liam')
 params[:basket] = Basket.find_by(title: "Vigorous Veges")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -212,7 +212,7 @@ params[:user] = User.find_by(first_name: 'Ayako')
 params[:basket] = Basket.find_by(title: "Vigorous Veges")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -222,7 +222,7 @@ params[:user] = User.find_by(first_name: 'Ayako')
 params[:basket] = Basket.find_by(title: "Seasonal delights")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -232,7 +232,7 @@ params[:user] = User.find_by(first_name: 'Cassiano')
 params[:basket] = Basket.find_by(title: "Voluptuous Vegetables")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -242,7 +242,7 @@ params[:user] = User.find_by(first_name: 'Cassiano')
 params[:basket] = Basket.find_by(title: "The good deal")
 params[:active] = true
 params[:status] = "pending"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -252,7 +252,7 @@ params[:user] = User.find_by(first_name: 'Davide')
 params[:basket] = Basket.find_by(title: "Funky Fruits")
 params[:active] = true
 params[:status] = "accepted"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -262,7 +262,7 @@ params[:user] = User.find_by(first_name: 'Davide')
 params[:basket] = Basket.find_by(title: "The good deal")
 params[:active] = true
 params[:status] = "rejected"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -272,7 +272,7 @@ params[:user] = User.find_by(first_name: 'Liam')
 params[:basket] = Basket.find_by(title: "Frisky Fruits")
 params[:active] = true
 params[:status] = "accepted"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -282,7 +282,7 @@ params[:user] = User.find_by(first_name: 'Liam')
 params[:basket] = Basket.find_by(title: "Super Fruits and Veg")
 params[:active] = true
 params[:status] = "rejected"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -292,7 +292,7 @@ params[:user] = User.find_by(first_name: 'Ayako')
 params[:basket] = Basket.find_by(title: "Super Fruits and Veg")
 params[:active] = true
 params[:status] = "accepted"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -302,7 +302,7 @@ params[:user] = User.find_by(first_name: 'Ayako')
 params[:basket] = Basket.find_by(title: "Frisky Fruits")
 params[:active] = true
 params[:status] = "rejected"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -312,7 +312,7 @@ params[:user] = User.find_by(first_name: 'Cassiano')
 params[:basket] = Basket.find_by(title: "Fresh Fruits")
 params[:active] = true
 params[:status] = "accepted"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
@@ -322,7 +322,7 @@ params[:user] = User.find_by(first_name: 'Cassiano')
 params[:basket] = Basket.find_by(title: "Frisky Fruits")
 params[:active] = true
 params[:status] = "rejected"
-params[:delivery_day] = Date.new
+params[:delivery_day] = Subscription.allowed_delivery_days.sample
 new_subscription = Subscription.new(params)
 new_subscription.save
 puts "Created subscription #{new_subscription.id}"
