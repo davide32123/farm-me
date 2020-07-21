@@ -21,60 +21,11 @@
     <% subscriptions.each do |subscription| %>
     <tr>
       <% if subscription.status == "pending" %>
-        <td class="subscription-pending">
-          <button type="button" class="btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#confirmSubscriptionModal">
-            <span>Accept</span>
-          </button>
-          <div class="modal" id="confirmSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="confirmSubscriptionModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <h2 class="modal-title" id="confirmSubscriptionModalTitle">Are you sure?</h2>
-                </div>
-                <div class="modal-footer justify-content-around">
-                  <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
-                  <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">No</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal">
-            <span>Decline</span>
-          </button>
-          <div class="modal" id="declineSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="declineSubscriptionModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <h2 class="modal-title" id="declineSubscriptionModalTitle">Are you sure?</h2>
-                </div>
-                <div class="modal-footer justify-content-around">
-                  <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
-                  <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">No</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </td>
-      <% elsif subscription.status == "accepted" %>
-         <td class="subscription-accept">
-            <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#cancelSubscriptionModal">
-              <span>Cancel</span>
+          <td class="subscription-pending">
+            <button type="button" class="btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#confirmSubscriptionModal<%=subscription.id%>">
+              <span>Accept</span>
             </button>
-            <div class="modal" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalTitle" aria-hidden="true">
+            <div class="modal" id="confirmSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="confirmSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header text-center">
@@ -83,7 +34,56 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <h2 class="modal-title" id="cancelSubscriptionModalTitle">Are you sure?</h2>
+                    <h2 class="modal-title" id="confirmSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
+                  </div>
+                  <div class="modal-footer justify-content-around">
+                    <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                    <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">No</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal<%=subscription.id%>">
+              <span>Decline</span>
+            </button>
+            <div class="modal" id="declineSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="declineSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2 class="modal-title" id="declineSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
+                  </div>
+                  <div class="modal-footer justify-content-around">
+                    <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                    <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">No</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+      <% elsif subscription.status == "accepted" %>
+         <td class="subscription-accept">
+            <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
+              <span>Cancel</span>
+            </button>
+            <div class="modal" id="cancelSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2 class="modal-title" id="cancelSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                   </div>
                   <div class="modal-footer justify-content-around">
                     <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "rejected"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
@@ -96,9 +96,9 @@
             </div>
          </td>
       <% else %>
-         <td class="subscription-reject">
+        <td class="subscription-reject">
           <p>Rejected</p>
-         </td>
+        </td>
       <% end %>
 
       <td><%= subscription.delivery_day %></td>
