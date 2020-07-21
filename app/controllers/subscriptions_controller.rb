@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
   def index
     skip_policy_scope
+    @subscriptions = Subscription.where(user: current_user)
   end
 
   def create; end
