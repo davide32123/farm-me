@@ -1,7 +1,6 @@
 class BasketsController < ApplicationController
   before_action :find_basket, only: [:show, :edit, :update]
 
-
   def new
     @basket = Basket.new
     authorize @basket
@@ -20,6 +19,7 @@ class BasketsController < ApplicationController
   end
 
   def show
+    @subscription = Subscription.new(user: current_user, basket: @basket)
     authorize @basket
     @basket_item = BasketItem.new
     authorize @basket_item

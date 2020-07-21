@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :basket_items, only: [:new, :create]
   end
 
-  resources :subscriptions, only: [:index, :update]
+  resources :subscriptions, only: [:index, :create, :update]
 end
