@@ -9,22 +9,18 @@
       <%= link_to "All Baskets", baskets_path, class: "nav-link mt-1"  %>
     </li>
   </ul>
-
-
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <% if user_signed_in? %>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "New Basket", new_basket_path, class: "nav-link"  %>
-    </li>
-  </ul>
-  <% end %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="row align-items-end navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "New Basket", new_basket_path, class: "nav-link"  %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
