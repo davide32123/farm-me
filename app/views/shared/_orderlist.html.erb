@@ -86,7 +86,7 @@
                       <h2 class="modal-title" id="cancelSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                     </div>
                     <div class="modal-footer justify-content-around">
-                      <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "rejected"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                      <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "canceled"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
                       <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">No</span>
                       </button>
@@ -114,7 +114,7 @@
                     <h2 class="modal-title" id="cancelSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                   </div>
                   <div class="modal-footer justify-content-around">
-                    <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "rejected"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                    <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "canceled"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
                     <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">No</span>
                     </button>
@@ -123,6 +123,10 @@
               </div>
             </div>
          </td>
+         <% elsif subscription.status == "canceled" %>
+          <td class="subscription-reject">
+          <p>Canceled</p>
+
       <% else %>
         <td class="subscription-reject">
           <p>Rejected</p>
