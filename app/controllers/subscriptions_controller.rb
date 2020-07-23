@@ -23,7 +23,12 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
     authorize @subscription
     @subscription.update(subscription_params)
-    redirect_to dashboard_path(current_user)
+    @subscriptions = Subscription.where(user: current_user)
+    if @subscriptions.count.zero?
+      redirect_to dashboard_path
+    else
+      redirect_to subscriptions_path
+    end
   end
 
   private
