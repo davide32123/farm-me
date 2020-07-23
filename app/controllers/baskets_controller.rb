@@ -4,7 +4,7 @@ class BasketsController < ApplicationController
   def new
     @basket = Basket.new
     authorize @basket
-    7.times { @basket.basket_items.build }
+    @basket.basket_items.build
   end
 
   def index
@@ -14,7 +14,6 @@ class BasketsController < ApplicationController
   end
 
   def create
-    raise
     @basket = current_user.baskets.new(basket_params)
     @basket.make_available!
     authorize @basket
@@ -53,6 +52,6 @@ class BasketsController < ApplicationController
   end
 
   def basket_params
-    params.require(:basket).permit(:description, :user_id, :availability, :title, :price, :basket_items [:product_id, :quantity], photos: [])
+    params.require(:basket).permit(:description, :user_id, :availability, :title, :price, basket_items_attributes: BasketItem.attribute_names.map(&:to_sym).push(:_destroy), photos: [])
   end
 end

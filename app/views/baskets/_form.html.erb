@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody class='fields'>
-      <%= f.simple_fields_for :basket_items do |builder| %>
+      <%= f.fields_for :basket_items do |builder| %>
         <%= render 'basket_item', f: builder %>
       <% end %>
     </tbody>
