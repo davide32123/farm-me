@@ -23,6 +23,8 @@
       <% if subscription.status == "pending" %>
           <td class="subscription-pending">
             <% if farmer %>
+             <p>Pending</p>
+  　　　　　　 <div class="d-flex">
               <button type="button" class="btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#confirmSubscriptionModal<%=subscription.id%>">
                 <span>Accept</span>
               </button>
@@ -49,6 +51,7 @@
               <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal<%=subscription.id%>">
                 <span>Decline</span>
               </button>
+              </div>
               <div class="modal" id="declineSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="declineSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                   <div class="modal-content">
@@ -66,6 +69,8 @@
                         <span aria-hidden="true">No</span>
                       </button>
                     </div>
+                </div>
+
                   </div>
                 </div>
               </div>
@@ -134,7 +139,7 @@
       <% end %>
 
       <td><%= subscription.delivery_day %></td>
-      <td><%= subscription.basket.title %></td>
+      <td><%= link_to subscription.basket.title, basket_path(subscription.basket.id) %></td>
       <td>¥<%= subscription.basket.price %></td>
       <td><%= farmer ? subscription.user.full_name : subscription.basket.user.full_name %></td>
       <td><%= farmer ? subscription.user.address : subscription.basket.user.address %></td>
