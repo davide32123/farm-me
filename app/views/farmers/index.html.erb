@@ -26,7 +26,10 @@
       <% end %>
     </div>
     <div>
-      <%= render partial:'shared/orderlist', locals: {subscriptions: @subscriptions, farmer: true}%>
+      <%= render partial:'shared/orderlist', locals: {subscriptions: @subscriptions_as_farmer, farmer: true}%>
+    </div>
+    <div>
+      <%= render partial:'shared/orderlist', locals: {subscriptions: @subscriptions_as_user, farmer: true}%>
     </div>
   </div>
 </div>
