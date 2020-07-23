@@ -1,5 +1,6 @@
 class BasketsController < ApplicationController
   before_action :find_basket, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def new
     @basket = Basket.new
