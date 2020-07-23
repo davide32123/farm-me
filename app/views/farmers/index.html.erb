@@ -1,4 +1,7 @@
 <div class="container p-5 mb-5 mt-5" style="background-color: #afcea4; opacity: 0.95;">
+  <% if @subscriptions.count > 0  %>
+   <%= link_to "Subscriptions", subscriptions_path %>
+  <% end %>
   <div class="basketlist-title text-center">
     <%if @baskets.count <= 1 %>
     <h3>You have <%= @baskets.count %> basket!  🥗</h3>
