@@ -20,9 +20,19 @@ table {
 
 .subscription-accept{
   background-color: $light-green;
+  position: relative;
 }
 
 .subscription-reject{
   background-color: $light-red;
 }
+
+.cancel-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: darkred;
+}
+
+
 
