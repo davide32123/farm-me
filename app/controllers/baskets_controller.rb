@@ -9,7 +9,7 @@ class BasketsController < ApplicationController
   def index
     skip_policy_scope
     if params[:query].present?
-      @baskets = Basket.search_by_products
+      @baskets = Basket.search_by_products(params[:query])
       authorize @baskets
     else
       @baskets = Basket.all
