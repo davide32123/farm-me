@@ -8,8 +8,13 @@ class BasketsController < ApplicationController
 
   def index
     skip_policy_scope
-    @baskets = Basket.all
-    authorize @baskets
+    if params[:query].present?
+      @baskets = Basket.search_by_products
+      authorize @baskets
+    else
+      @baskets = Basket.all
+      authorize @baskets
+    end
   end
 
   def create
