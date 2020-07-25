@@ -3,7 +3,7 @@ table {
   th {
   text-align: center;
   padding: 10px 20px;
-  background-color: $green;
+  background-color: $light-green;
   border:1px solid black;
   }
   td {
@@ -12,10 +12,20 @@ table {
   border:1px solid black;
   background-color: white;
   }
+  a {
+  color: black;
+  }
+  p{
+    margin-bottom: 0;
+  }
+  button{
+    height: 32px;
+  }
 }
 
 .subscription-pending{
   background-color: $light-yellow;
+  position: relative;
   width: 160px;
 }
 

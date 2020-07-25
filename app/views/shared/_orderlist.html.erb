@@ -40,7 +40,7 @@
                       <h2 class="modal-title" id="confirmSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                     </div>
                     <div class="modal-footer justify-content-around">
-                      <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                      <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "accepted" ), method: :patch, remote: true, class: 'btn btn-outline-success rounded-pill' %>
                       <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">No</span>
                       </button>
@@ -48,7 +48,7 @@
                   </div>
                 </div>
               </div>
-              <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal<%=subscription.id%>">
+              <button type="button" class="btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal<%=subscription.id%>">
                 <span>Decline</span>
               </button>
               </div>
@@ -64,7 +64,7 @@
                       <h2 class="modal-title" id="declineSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                     </div>
                     <div class="modal-footer justify-content-around">
-                      <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                      <%= link_to "Yes", subscription_path(subscription.id, 'subscription[status]' => "rejected "), method: :patch, remote: true, class: 'btn btn-outline-success rounded-pill' %>
                       <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">No</span>
                       </button>
@@ -76,8 +76,8 @@
               </div>
             <% else %>
              <p>Pending</p>
-             <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
-              <span>Cancel</span>
+             <button type="button" class="mt-1 btn cancel-button" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
+              <span><i class="fas fa-times"></i></span>
              </button>
               <div class="modal" id="cancelSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -91,7 +91,7 @@
                       <h2 class="modal-title" id="cancelSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                     </div>
                     <div class="modal-footer justify-content-around">
-                      <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "canceled"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                      <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "canceled"), method: :patch, remote: true, class: 'btn btn-outline-success rounded-pill' %>
                       <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">No</span>
                       </button>
@@ -104,7 +104,7 @@
       <% elsif subscription.status == "accepted" %>
          <td class="subscription-accept">
           <p>Accepted</p>
-            <button type="button" class="btn cancel-button " data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
+            <button type="button" class="btn cancel-button" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
               <i class="fas fa-times"></i>
             </button>
             <div class="modal" id="cancelSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
@@ -119,7 +119,7 @@
                     <h2 class="modal-title" id="cancelSubscriptionModalTitle<%=subscription.id%>">Are you sure?</h2>
                   </div>
                   <div class="modal-footer justify-content-around">
-                    <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "canceled"), method: :patch, class: 'btn btn-outline-success rounded-pill' %>
+                    <%= link_to "Yes", subscription_path(subscription.id,'subscription[status]' => "canceled"), method: :patch, remote: true, class: 'btn btn-outline-success rounded-pill' %>
                     <button type="button" class="btn btn-outline-success rounded-pill" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">No</span>
                     </button>

@@ -1,6 +1,15 @@
 <div class="container p-5 mb-5 mt-5" style="background-color: #afcea4; opacity: 0.95;">
   <div style="background-color: white">
-    <h1 class="text-center">Basket Details</h1>
+    <div class="row pt-3">
+      <div class="col-4 offset-4">
+        <h1 class="text-center">Basket Details</h1>
+      </div>
+      <div class="col offset-2">
+        <% if policy(@basket).edit? %>
+        <%= link_to "Edit basket", edit_basket_path(@basket), class: "btn btn-success ml-3 mb-3" %>
+        <% end %>
+      </div>
+    </div>
     <hr>
     <div class="d-flex">
       <div class="container border">
@@ -47,11 +56,11 @@
         <div>
           <% if current_user %>
             <% if current_user.subscriptions.map {|s| s.basket_id}.include?(@basket.id) %>
-              <button class="btn btn-primary" disabled>
+              <button class="btn btn-success w-100" disabled>
                 Currently subscribed
               </button>
             <% else %>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newSubscription" aria-expanded="false" aria-controls="collapseExample">
+              <button class="btn btn-success w-100" type="button" data-toggle="collapse" data-target="#newSubscription" aria-expanded="false" aria-controls="collapseExample">
                 Subscribe
               </button>
             <% end %>
@@ -63,7 +72,7 @@
               <% end -%>
             </div>
           <% else %>
-            <button class="btn btn-secondary" disabled>
+            <button class="btn btn-success w-100" disabled>
               Log in or register to subscribe
             </button>
           <% end %>
@@ -71,19 +80,5 @@
         <% end %>
       </div>
     </div>
-
-    <% if policy(@basket).edit? %>
-    <%= link_to "Edit basket", edit_basket_path(@basket), class: "btn btn-outline-primary ml-3 mb-3" %>
-    <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#newProduct" aria-expanded="false" aria-controls="collapseExample">
-      Add product
-    </button>
-    <div class="collapse p-5" id="newProduct">
-      <%= simple_form_for([@basket, @basket_item]) do |f| %>
-      <%= f.input :product_id, collection: Product.all %>
-      <%= f.input :quantity %>
-      <%= f.submit 'Add Items'%>
-      <% end %>
-    </div>
-    <% end %>
   </div>
 </div>
