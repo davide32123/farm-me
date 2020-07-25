@@ -7,6 +7,8 @@ class Basket < ApplicationRecord
   validates :user_id, :price, :title, :availability, :description, presence: true
   validates :title, uniqueness: { scope: :description }
 
+  accepts_nested_attributes_for :basket_items, allow_destroy: true, reject_if: :all_blank
+
   def make_available!
     self.availability = true
   end

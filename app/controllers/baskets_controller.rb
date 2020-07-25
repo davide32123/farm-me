@@ -5,6 +5,7 @@ class BasketsController < ApplicationController
   def new
     @basket = Basket.new
     authorize @basket
+    @basket.basket_items.build
   end
 
   def index
@@ -57,6 +58,6 @@ class BasketsController < ApplicationController
   end
 
   def basket_params
-    params.require(:basket).permit(:description, :user_id, :availability, :title, :price, photos: [])
+    params.require(:basket).permit(:description, :user_id, :availability, :title, :price, basket_items_attributes: BasketItem.attribute_names.map(&:to_sym).push(:_destroy), photos: [])
   end
 end

@@ -25,15 +25,19 @@ table {
 
 .subscription-pending{
   background-color: $light-yellow;
+  position: relative;
+  width: 160px;
 }
 
 .subscription-accept{
   background-color: $light-green;
   position: relative;
+  width: 160px;
 }
 
 .subscription-reject{
   background-color: $light-red;
+  width: 160px;
 }
 
 .cancel-button{
