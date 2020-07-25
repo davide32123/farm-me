@@ -13,6 +13,8 @@
 @import "pages/index";
 
 body {
-  background-image: asset-url("vege2.jpg");
+  background-image: asset-url("vegetable.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 1000px;
 }
