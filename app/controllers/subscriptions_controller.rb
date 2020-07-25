@@ -20,15 +20,12 @@ class SubscriptionsController < ApplicationController
 
   def update
     skip_policy_scope
+    session[:return_to] ||= request.referer
     @subscription = Subscription.find(params[:id])
     authorize @subscription
     @subscription.update(subscription_params)
     @subscriptions = Subscription.where(user: current_user)
-    if @subscriptions.count.zero?
-      redirect_to dashboard_path
-    else
-      redirect_to subscriptions_path
-    end
+    redirect_to session.delete(:return_to)
   end
 
   private
