@@ -56,11 +56,11 @@
         <div>
           <% if current_user %>
             <% if current_user.subscriptions.map {|s| s.basket_id}.include?(@basket.id) %>
-              <button class="btn btn-success w-100" disabled>
+              <button class="'btn btn-outline-success btn-sm rounded-pill w-100" disabled>
                 Currently subscribed
               </button>
             <% else %>
-              <button class="btn btn-success w-100" type="button" data-toggle="collapse" data-target="#newSubscription" aria-expanded="false" aria-controls="collapseExample">
+              <button class="'btn btn-outline-success btn-sm rounded-pill w-100" type="button" data-toggle="collapse" data-target="#newSubscription" aria-expanded="false" aria-controls="collapseExample">
                 Subscribe
               </button>
             <% end %>
@@ -72,7 +72,7 @@
               <% end -%>
             </div>
           <% else %>
-            <button class="btn btn-success w-100" disabled>
+            <button class="'btn btn-outline-success btn-sm rounded-pill w-100" disabled>
               Log in or register to subscribe
             </button>
           <% end %>

@@ -26,7 +26,7 @@
         <div class="basket-info p-1 text-center">
           <h5><%= basket.title %></h5>
           <div class="d-flex justify-content-between pr-2 pl-2">
-            <p><%= link_to 'Details', basket_path(basket), class: 'btn btn-success'  %></p>
+            <p><%= link_to 'Details', basket_path(basket), class: 'btn btn-outline-success btn-sm rounded-pill'  %></p>
             <div>
               <p class="mb-0"><strong>¥ <%= basket.price %></strong></p>
               <% if current_user %>
