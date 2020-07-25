@@ -1,13 +1,28 @@
-<div class="container p-5 mb-5 mt-5" style="background-color: lightgray; opacity: 0.95;">
+<div class="container p-3 mt-5" style="background-color: lightgray; opacity: 0.95;">
   <div class="container">
     <div class="row justify-content-center p-2">
-      <div class="col-sm-4 col-sm-offset-4">
+      <div class="col-sm-8 col-sm-offset-4">
         <h2>Sign up</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <%= f.input :photo, as: :file %>
+          <div class="d-flex justify-content-between">
+            <%= f.input :first_name,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "first name"}%>
+            <%= f.input :last_name,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "last name"}%>
+          </div>
+          <%= f.input :address,
+          required: true,
+          autofocus: true,
+          input_html: { autocomplete: "address" }%>
           <%= f.input :email,
           required: true,
           autofocus: true,
