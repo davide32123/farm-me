@@ -48,7 +48,7 @@
                   </div>
                 </div>
               </div>
-              <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal<%=subscription.id%>">
+              <button type="button" class="btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#declineSubscriptionModal<%=subscription.id%>">
                 <span>Decline</span>
               </button>
               </div>
@@ -76,7 +76,7 @@
               </div>
             <% else %>
              <p>Pending</p>
-             <button type="button" class="mt-1 btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
+             <button type="button" class="btn btn-outline-success rounded-pill" data-toggle="modal" data-target="#cancelSubscriptionModal<%=subscription.id%>">
               <span>Cancel</span>
              </button>
               <div class="modal" id="cancelSubscriptionModal<%=subscription.id%>" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalTitle<%=subscription.id%>" aria-hidden="true">
