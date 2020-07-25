@@ -1,8 +1,6 @@
-<tr>
-  <td>
-    <%= f.input_field :_destroy, as: :hidden %>
-    <%= link_to 'Delete', '#', class: 'remove_record' %>
-  </td>
-  <td><%= f.input :product_id, collection: Product.all, label: false %></td>
-  <td><%= f.input :quantity, label: false %></td>
-</tr>
+<div class="d-flex justify-content-between w-50">
+  <%= f.input :product_id, collection: Product.all, label: false%>
+  <%= f.input :quantity, label: false %>
+  <%= f.input_field :_destroy, as: :hidden %>
+  <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, '#', class: 'remove_record' %>
+</div>
