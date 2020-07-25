@@ -3,25 +3,20 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :price, input_html: { step: 100 }%>
+  <hr>
+  <div class="d-flex justify-content-between">
+    <p>Products </p>
+    <%= link_to_add_row('Add item', f, :basket_items, class: 'btn btn-success') %>
+  </div>
+  <div class='fields'>
+    <%= f.fields_for :basket_items do |builder| %>
+      <%= render 'basket_item', f: builder %>
+    <% end %>
 
-  <table class='table'>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Product</th>
-        <th>Quantity</th>
-      </tr>
-    </thead>
-    <tbody class='fields'>
-      <%= f.fields_for :basket_items do |builder| %>
-        <%= render 'basket_item', f: builder %>
-      <% end %>
-    </tbody>
-  </table>
+  </div>
 
   <div class="form-actions">
-    <%= f.submit 'Unleash your Basket' %>
-    <%= link_to_add_row('Add item', f, :basket_items, class: 'btn btn-primary') %>
+    <%= f.button :submit, "Unleash your Basket", class: "btn btn-success" %>
   </div>
 
 <% end %>
