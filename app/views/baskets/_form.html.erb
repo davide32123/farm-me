@@ -13,7 +13,7 @@
 
   <div class="form-actions">
     <%= f.submit 'Unleash your Basket' %>
-    <%= link_to_add_basket_item('Add item', f, class: 'btn btn-primary') %>
+    <%= link_to_add_row('Add item', f, :basket_items, class: 'btn btn-primary') %>
   </div>
 
 <% end %>
