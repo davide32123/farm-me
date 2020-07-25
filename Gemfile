@@ -72,3 +72,6 @@ gem 'faker'
 
 # Authorizations
 gem 'pundit'
+
+# Geocoding
+gem 'geocoder'
