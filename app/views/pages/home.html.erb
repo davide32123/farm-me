@@ -1,40 +1,40 @@
+
 <div>
   <%= render 'pages/carousel' %>
 </div>
 
+<div class="container pb-5">
 
-
-<div class="home-card">
-  <div class="card" style="width: 18rem;">
-    <h3 class="text-center mt-2">Organic Farming</h3>
-    <div class="row justify-content-center p-1">
-      <%= image_tag "farm.png", height: 200, width: 280, crop: :fill %>
+  <div class="home-card">
+    <div class="card" style="width: 18rem;">
+      <h3 class="text-center mt-2">Organic Farming</h3>
+      <div class="row justify-content-center p-1">
+        <%= image_tag "farm.png", height: 200, width: 280, crop: :fill %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"></p>
+      </div>
     </div>
-    <div class="card-body">
-      <p class="card-text"></p>
+    <div class="card" style="width: 18rem;">
+      <h3 class="text-center mt-2">Farmers</h3>
+      <div class="row justify-content-center p-1">
+        <%= image_tag "farmer.png", height: 200, width: 280, crop: :fill %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <h3 class="text-center mt-2">About Us</h3>
+      <div class="row justify-content-center p-1">
+        <%= image_tag "Farm-me.png", height: 200, width: 280, crop: :fill %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"></p>
+      </div>
     </div>
   </div>
-  <div class="card" style="width: 18rem;">
-    <h3 class="text-center mt-2">Farmers</h3>
-    <div class="row justify-content-center p-1">
-      <%= image_tag "farmer.png", height: 200, width: 280, crop: :fill %>
-    </div>
-    <div class="card-body">
-      <p class="card-text"></p>
-    </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <h3 class="text-center mt-2">About Us</h3>
-    <div class="row justify-content-center p-1">
-      <%= image_tag "Farm-me.png", height: 200, width: 280, crop: :fill %>
-    </div>
-    <div class="card-body">
-      <p class="card-text"></p>
-    </div>
-  </div>
-</div>
-
-<div class="container mt-5">
+  <div class="container mt-5">
     <%= form_tag baskets_path, method: :get do %>
     <%= text_field_tag :query,
     params[:query],
@@ -47,6 +47,9 @@
         <% end %>
       </div>
     </div>
+  </div>
+
+
 
 
 
