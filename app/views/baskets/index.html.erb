@@ -27,7 +27,12 @@
           <h5><%= basket.title %></h5>
           <div class="d-flex justify-content-between pr-2 pl-2">
             <p><%= link_to 'Details', basket_path(basket), class: 'btn btn-success'  %></p>
-            <p><strong>¥ <%= basket.price %></strong></p>
+            <div>
+              <p class="mb-0"><strong>¥ <%= basket.price %></strong></p>
+              <% if current_user %>
+                <p class="m-0"><%= basket.user.distance_to([current_user.latitude,current_user.longitude]).round(2) %> km</p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

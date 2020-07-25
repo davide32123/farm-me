@@ -21,7 +21,7 @@ params[:last_name] = "Zanetto"
 params[:password] = "password"
 params[:email] = "davide.zanetto@farm-me.com"
 params[:description] = "I love nature"
-params[:address] = Faker::Address.full_address
+params[:address] = "Miwamidoriyama, Machida, Tokyo 195-0055"
 new_user = User.new(params)
 new_user.save
 puts "Created user #{new_user.id}"
@@ -32,7 +32,7 @@ params[:last_name] = "Baker"
 params[:password] = "password"
 params[:email] = "liam.baker@farm-me.com"
 params[:description] = "I love nature and coding"
-params[:address] = Faker::Address.full_address
+params[:address] = "Saitama"
 new_user = User.new(params)
 new_user.save
 puts "Created user #{new_user.id}"
@@ -43,7 +43,7 @@ params[:last_name] = "Amano"
 params[:password] = "password"
 params[:email] = "ayako.amano@farm-me.com"
 params[:description] = "I love coding"
-params[:address] = Faker::Address.full_address
+params[:address] = "286-0221 Chiba, Tomisato"
 new_user = User.new(params)
 new_user.save
 puts "Created user #{new_user.id}"
@@ -54,7 +54,7 @@ params[:last_name] = "Yasumitsu"
 params[:password] = "password"
 params[:email] = "cassiano.yasumitsu@farm-me.com"
 params[:description] = "I love coding"
-params[:address] = Faker::Address.full_address
+params[:address] = "Yokohama, Kanagawa 231-0824"
 new_user = User.new(params)
 new_user.save
 puts "Created user #{new_user.id}"

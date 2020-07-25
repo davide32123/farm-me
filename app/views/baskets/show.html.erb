@@ -27,6 +27,9 @@
         <p> Description: <%= @basket.description %> </p>
         <p> Farmer name: <%= @basket.user.first_name %> <%= @basket.user.last_name %> </p>
         <p> Farmer description: <%= @basket.user.description %> </p>
+        <% if current_user %>
+          <p>Distance from you: <%= @basket.user.distance_to([current_user.latitude,current_user.longitude]).round(2) %> km</p>
+        <% end %>
       </div>
       <div class="container w-50 p-2 border border-dark rounded mr-3 mb-3">
         <p class="text-center border rounded"> Price: <%= @basket.price %> JPY </p>
