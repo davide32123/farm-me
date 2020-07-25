@@ -1,6 +1,6 @@
-<h6><div class="d-flex justify-content-between w-50">
+<h6><div class="d-flex justify-content-between w-50 align-items-center">
   <%= f.input :product_id, collection: Product.all, label: false%>
   <%= f.input :quantity, label: false %>
   <%= f.input_field :_destroy, as: :hidden %>
-  <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, '#', class: 'remove_record' %>
+  <%= link_to '<i class="fa fa-trash-alt align-middle" style="height: 38px;"></i>'.html_safe, '#', class: 'remove_record' %>
 </div></h6>
