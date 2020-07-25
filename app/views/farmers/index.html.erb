@@ -1,7 +1,13 @@
+
 <div class="container p-5 mb-5 mt-5" style="background-color: #afcea4; opacity: 0.95;">
-  <% if @subscriptions.count > 0  %>
-   <p><%= link_to "Subscriptions", subscriptions_path, class: 'btn btn-outline-success rounded-pill offset-10' %></p>
-  <% end %>
+  <div class="row">
+    <h1 class="offset-5 col">Dashboard</h1>
+    <% if @subscriptions.count > 0  %>
+      <p><%= link_to "My Subscriptions", subscriptions_path, class: 'btn btn-outline-success btn-sm rounded-pill offset-2 col' %></p>
+    <% end %>
+  </div>
+  <hr>
+
   <div class="basketlist-title text-center">
     <%if @baskets.count <= 1 %>
     <h3>You have <%= @baskets.count %> basket!  🥗</h3>
